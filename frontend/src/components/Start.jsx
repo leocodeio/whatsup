@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import whatsup from './artifacts/whatsup.png'; 
 
 const Start = () => {
   return (
-    <div>
-      this will be start!!!
-    </div>
-  )
-}
+    <header className="start-header">
+      <img src={whatsup} alt="Whatsup Logo" className="start-img" />
+      <h5>WHATSUP WEB</h5>
+    </header>
+  );
+};
 
-export default Start
+export default Start;
