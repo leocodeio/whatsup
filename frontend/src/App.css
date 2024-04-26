@@ -41,7 +41,7 @@
   left: 50%; /* Added */
   transform: translate(-50%, -50%); /* Added */
   color: black;
-
+  
   display: flex;
   flex-direction: row;
   justify-content: space-around;
