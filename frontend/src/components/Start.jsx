@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import whatsup from "./artifacts/whatsup.png";
 import Register from "./login_signup/Register";
 import Login from "./login_signup/Login";
-  
+
 const Start = () => {
   const [isUser, setisUser] = useState("yes");
 
@@ -19,11 +19,18 @@ const Start = () => {
       <div className="start-body">
         <div className="start-card">
           <div className="how-to-use">
-            <h4>How to use ?</h4>
-            <h4>How to use ?</h4>
-            <h4>How to use ?</h4>
-            <h4>How to use ?</h4>
-            <h4>How to use ?</h4>
+            <h2>Use WhatsUp on your computer</h2>
+            <br></br>
+            <ul className="start-ul">
+              <li>
+                First login into your account, if you are new here create a
+                new account.
+              </li>
+              <li>
+                After logging in search the unique whatsup tag to go texting.
+              </li>
+              <li>You can see the previous tags that you are texted with.</li>
+            </ul>
           </div>
           <div className="signup-login">
             {isUser === "yes" ? (
