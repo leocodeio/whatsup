@@ -5,7 +5,7 @@ const Start = () => {
   return (
     <header className="start-header">
       <img src={whatsup} alt="Whatsup Logo" className="start-img" />
-      <h5>WHATSUP WEB</h5>
+      <h5 className="start-heading">WHATSUP WEB</h5>
     </header>
   );
 };

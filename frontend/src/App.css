@@ -1,19 +1,25 @@
 .App {
-  color:white;
+  color: white;
   text-align: center;
 }
 
-.start-img{
+.start-img {
   margin-top: 10px;
   height: 40px;
   width: 40px;
 }
 
-.start-header{
-  background-color:rgba(0, 155, 98, 0.827) ;
+.start-header {
+  background-color: rgba(0, 155, 98, 0.827);
   display: flex;
   gap: 10px;
   padding: 20px;
   padding-left: 145px;
-  height: 180px;
+  height: 182px;
+}
+
+.start-heading {
+  font-size: small;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
 }
