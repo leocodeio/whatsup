@@ -16,6 +16,15 @@ app.post('/login', (req, res) => {
   res.send('Login successful');
 });
 
+app.post('/signup', (req, res) => {
+  const { email, password , name} = req.body;
+  console.log('Email:', email);
+  console.log('Password:', password);
+  console.log('name:', name);
+  // Here you can handle the login logic
+  res.send('Login successful');
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

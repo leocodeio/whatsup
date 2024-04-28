@@ -44,7 +44,7 @@ const Login = (props) => {
 
         <button type='submit'>Login</button>
       </form>
-      <button onClick={() => props.onFormSwitch('register')}>Don't have an account? Create one here</button>
+      <button onClick={() => props.onFormSwitch('no')}>Don't have an account? Create one here</button>
     </>
   );
 };
