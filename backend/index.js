@@ -1,18 +1,21 @@
-const express = require("express");
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
 const app = express();
+const port = 3001;
 
-app.use(express.urlencoded());
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(cors()); // Add this line to enable CORS
 
-app.post("/", (req, res) => {
-  console.log(req.body);
-  res.send("Data received");
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+  console.log('Email:', email);
+  console.log('Password:', password);
+  // Here you can handle the login logic
+  res.send('Login successful');
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.listen(3001, () => {
-  console.log("Server is running on port 3001");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

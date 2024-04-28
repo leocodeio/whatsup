@@ -1,34 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const Login = (props) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const [email,setEmail]= useState('');
-  const [pass,setPass]=useState('');
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, pass);
+    try {
+      const response = await axios.post('http://localhost:3001/login', { email, password });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
-        
         <section>
-        <label htmlFor='email'>Email</label>
-        <input value={email} onChange={(e)=> setEmail(e.target.value)} type='email' placeholder='youremail' />
-        </section>
-        
-        <section>
-        <label htmlFor='password'>Password</label>
-        <input value={pass} onChange={(e)=> setPass(e.target.value)} type='password' placeholder='password' />
+          <label htmlFor='email'>Email</label>
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type='email'
+            id='email'
+            placeholder='Your email'
+            required
+          />
         </section>
 
-        <button type='submit' className='account-manage-button'>Log In</button>
+        <section>
+          <label htmlFor='password'>Password</label>
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type='password'
+            id='password'
+            placeholder='Password'
+            required
+          />
+        </section>
+
+        <button type='submit'>Login</button>
       </form>
-      <button onClick={() => props.onFormSwitch('no')}>Don't have an account? Create here</button>
-
+      <button onClick={() => props.onFormSwitch('register')}>Don't have an account? Create one here</button>
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
