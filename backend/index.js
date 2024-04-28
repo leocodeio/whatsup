@@ -1,13 +1,13 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mongoose = require('mongoose');
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const mongoose = require("mongoose");
 
 const app = express();
 const port = 3001;
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/whatsup', {
+mongoose.connect("mongodb://localhost:27017/whatsup", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -20,17 +20,17 @@ const userSchema = new mongoose.Schema({
 });
 
 // Create a model
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post('/signup', async (req, res) => {
+app.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
-  console.log('Name:', name);
-  console.log('Email:', email);
-  console.log('Password:', password);
-  
+  console.log("Name:", name);
+  console.log("Email:", email);
+  console.log("Password:", password);
+
   try {
     const user = new User({
       name,
@@ -38,26 +38,31 @@ app.post('/signup', async (req, res) => {
       password,
     });
     await user.save();
-    console.log('User saved to database:', user);
-    res.send('Signup successful');
+    console.log("User saved to database:", user);
+    res.send("Signup successful");
   } catch (error) {
-    console.error('Error:', error);
-    res.status(500).send('Error saving user to database');
+    console.error("Error:", error);
+    res.status(500).send("Error saving user to database");
+  }
+});
+
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await User.findOne({ email, password });
+    if (user) {
+      console.log('ok');
+    } else {
+      console.log('not ok');
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
   }
 });
 
 
-app.post('/login', (req, res) => {
-  const { email, password } = req.body;
-  console.log('Email:', email);
-  console.log('Password:', password);
-  // Here you can handle the login logic
-  res.send('Login successful');
-});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-
-
