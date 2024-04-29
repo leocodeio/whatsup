@@ -7,9 +7,17 @@ const Login = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     try {
       const response = await axios.post('http://localhost:3001/login', { email, password });
-      console.log(response.data);
+      console.log('Response:', response);
+  
+      if (response.status === 200) {
+        console.log('Login successful');
+        localStorage.setItem('isLogged', 'yes'); // Set isLogged to 'yes' if login is successful
+      } else {
+        console.log('Login failed');
+      }
     } catch (error) {
       console.error('Error:', error);
     }

@@ -5,12 +5,19 @@ import Login from "./login_signup/Login";
 
 const Start = () => {
   const [isUser, setisUser] = useState("yes");
+  var [isLogged, setisLogged] = useState("yes");
 
   const toggle = (decision) => {
     setisUser(decision);
   };
-
-  return (
+  localStorage.setItem("isLogged", "no");
+  setisLogged = localStorage.getItem("isLogged");
+  console.log(isLogged);
+  return isLogged === "yes" ? (
+    <>
+      <h1 style={{ color: "black" }}>Successfully Logged In!</h1>
+    </>
+  ) : (
     <>
       <header className="start-header">
         <img src={whatsup} alt="Whatsup Logo" className="start-img" />
@@ -23,8 +30,8 @@ const Start = () => {
             <br></br>
             <ul className="start-ul">
               <li>
-                First login into your account, if you are new here create a
-                new account.
+                First login into your account, if you are new here create a new
+                account.
               </li>
               <li>
                 After logging in search the unique whatsup tag to go texting.
