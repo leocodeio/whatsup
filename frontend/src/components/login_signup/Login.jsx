@@ -1,3 +1,4 @@
+// login.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -14,7 +15,7 @@ const Login = (props) => {
   
       if (response.status === 200) {
         console.log('Login successful');
-        localStorage.setItem('isLogged', 'yes'); // Set isLogged to 'yes' if login is successful
+        props.setIsLogged(true); // Update isLogged state in Start component
       } else {
         console.log('Login failed');
       }

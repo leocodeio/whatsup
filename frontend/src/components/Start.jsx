@@ -1,21 +1,26 @@
+// start.jsx
 import React, { useState } from "react";
 import whatsup from "./artifacts/whatsup.png";
 import Register from "./login_signup/Register";
 import Login from "./login_signup/Login";
+import Logout from "./login_signup/Logout";
 
 const Start = () => {
-  const [isUser, setisUser] = useState("yes");
-  var [isLogged, setisLogged] = useState("yes");
+  const [isUser, setIsUser] = useState("yes");
+  const [isLogged, setIsLogged] = useState(localStorage.getItem("isLogged") === "yes");
 
   const toggle = (decision) => {
-    setisUser(decision);
+    setIsUser(decision);
   };
-  localStorage.setItem("isLogged", "no");
-  setisLogged = localStorage.getItem("isLogged");
-  console.log(isLogged);
-  return isLogged === "yes" ? (
+
+  const handleLogin = (loggedIn) => {
+    setIsLogged(loggedIn);
+  };
+
+  return isLogged ? (
     <>
       <h1 style={{ color: "black" }}>Successfully Logged In!</h1>
+      <Logout setIsLogged={setIsLogged} />
     </>
   ) : (
     <>
@@ -41,9 +46,9 @@ const Start = () => {
           </div>
           <div className="signup-login">
             {isUser === "yes" ? (
-              <Login onFormSwitch={toggle} />
+              <Login onFormSwitch={toggle} setIsLogged={handleLogin} />
             ) : (
-              <Register onFormSwitch={toggle} />
+              <Register onFormSwitch={toggle} setIsLogged={handleLogin} />
             )}
           </div>
         </div>
