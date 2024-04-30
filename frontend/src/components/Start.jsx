@@ -4,6 +4,7 @@ import whatsup from "./artifacts/whatsup.png";
 import Register from "./login_signup/Register";
 import Login from "./login_signup/Login";
 import Logout from "./login_signup/Logout";
+import Text from "./login_signup/Text";
 
 const Start = () => {
   const [isUser, setIsUser] = useState("yes");
@@ -19,8 +20,8 @@ const Start = () => {
 
   return isLogged ? (
     <>
-      <h1 style={{ color: "black" }}>Successfully Logged In!</h1>
       <Logout setIsLogged={setIsLogged} />
+      <Text/>
     </>
   ) : (
     <>
@@ -30,8 +31,15 @@ const Start = () => {
       </header>
       <div className="start-body">
         <div className="start-card">
+          <div className="signup-login">
+            {isUser === "yes" ? (
+              <Login onFormSwitch={toggle} setIsLogged={handleLogin} />
+            ) : (
+              <Register onFormSwitch={toggle} setIsLogged={handleLogin} />
+            )}
+          </div>
           <div className="how-to-use">
-            <h2>Use WhatsUp on your computer</h2>
+            <h2>Use WhatsUp</h2>
             <br></br>
             <ul className="start-ul">
               <li>
@@ -43,13 +51,6 @@ const Start = () => {
               </li>
               <li>You can see the previous tags that you are texted with.</li>
             </ul>
-          </div>
-          <div className="signup-login">
-            {isUser === "yes" ? (
-              <Login onFormSwitch={toggle} setIsLogged={handleLogin} />
-            ) : (
-              <Register onFormSwitch={toggle} setIsLogged={handleLogin} />
-            )}
           </div>
         </div>
       </div>
