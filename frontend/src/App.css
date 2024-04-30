@@ -2,12 +2,10 @@
   color: rgb(0, 0, 0);
   text-align: center;
 }
-
 .link {
   text-decoration: none;
   color: #000000;
 }
-
 .start-header {
   background-color: rgba(0, 155, 98, 0.827);
   display: flex;
@@ -23,20 +21,16 @@
   height: 40px;
   width: 40px;
 }
-
-
 .start-heading {
   font-size: small;
   font-weight: 600;
   color: rgb(255, 255, 255);
 }
-
 .start-body {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .start-card {
   width: 90%;
   background-color: #ffffff;
@@ -45,19 +39,16 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   color: black;
 }
-
 .signup-login {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 form {
   padding: 10px;
   border: solid black 1px;
   border-radius: 10px;
 }
-
 section {
   display: flex;
   align-items: center;
@@ -65,12 +56,10 @@ section {
   flex-direction: column;
   gap: 20px;
 }
-
 label {
   color: black;
   margin-bottom: 5px;
 }
-
 input {
   width: 90%;
   padding: 10px;
@@ -78,7 +67,6 @@ input {
   border-radius: 5px;
   margin-bottom: 10px;
 }
-
 button {
   width: 100%;
   padding: 10px;
@@ -88,22 +76,9 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-
 button:hover {
   background-color: rgba(0, 155, 98, 1);
-}
-
-/* .account-manage-button {
-  color: #007bff;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.account-manage-button:hover {
-  text-decoration: underline;
-} */
-
+} /* .account-manage-button { color: #007bff; background: none; border: none; cursor: pointer; } .account-manage-button:hover { text-decoration: underline; } */
 .start-ul {
   list-style-type: none;
   padding: 0;
@@ -112,22 +87,18 @@ button:hover {
   font-weight: 400;
   font-size: larger;
 }
-
 li {
   padding: 8px 0;
   position: relative;
 }
-
 li:before {
-  content: "\2022";  /* Bullet point */
-  color: #000000;    /* Bullet color */
+  content: "\2022"; /* Bullet point */
+  color: #000000; /* Bullet color */
   font-weight: bolder;
   position: absolute;
   left: -1em;
-  top: 10%;
-  /* transform: translateY(-75%); */
+  top: 10%; /* transform: translateY(-75%); */
 }
-
 .how-to-use h2 {
   font-weight: 100;
   font-size: 20px;
