@@ -21,17 +21,17 @@ const Register = (props) => {
       <form onSubmit={handleSubmit}>
         <section>
           <label htmlFor='name'>Name</label>
-          <input value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder='yourName' />
+          <input value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder='yourName' required />
         </section>
 
         <section>
           <label htmlFor='email'>Email</label>
-          <input value={email} onChange={(e) => setEmail(e.target.value)} type='email' placeholder='youremail' />
+          <input value={email} onChange={(e) => setEmail(e.target.value)} type='email' placeholder='youremail'required />
         </section>
 
         <section>
           <label htmlFor='password'>Password</label>
-          <input value={password} onChange={(e) => setPassword(e.target.value)} type='password' placeholder='password' />
+          <input value={password} onChange={(e) => setPassword(e.target.value)} type='password' placeholder='password' required />
         </section>
         
         <button type='submit' className='account-manage-button'>Sign Up</button>
