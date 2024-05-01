@@ -31,13 +31,6 @@ const Start = () => {
       </header>
       <div className="start-body">
         <div className="start-card">
-          <div className="signup-login">
-            {isUser === "yes" ? (
-              <Login onFormSwitch={toggle} setIsLogged={handleLogin} />
-            ) : (
-              <Register onFormSwitch={toggle} setIsLogged={handleLogin} />
-            )}
-          </div>
           <div className="how-to-use">
             <h2>Use WhatsUp</h2>
             <br></br>
@@ -51,6 +44,13 @@ const Start = () => {
               </li>
               <li>You can see the previous tags that you are texted with.</li>
             </ul>
+          </div>
+          <div className="signup-login">
+            {isUser === "yes" ? (
+              <Login onFormSwitch={toggle} setIsLogged={handleLogin} />
+            ) : (
+              <Register onFormSwitch={toggle} setIsLogged={handleLogin} />
+            )}
           </div>
         </div>
       </div>
