@@ -164,14 +164,52 @@ li:before {
   padding: 20px;
 }
 
+.search-sending{
+  position: fixed;
+  top: 40px;
+  left:0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: calc(30% - 40px);
+}
 
+.search-sending button{
+  width: 50px;
+}
+
+.search-sending input{
+  margin-top: 6px;
+  width: 100%;
+}
 
 .text-area {
   position: fixed;
   left: 30%;
   top: 40px;
   height: 100vh;
-  width: calc(100vw - 30% - 40px);; 
+  width: calc(100vw - 30% - 40px);
   border: 2px solid #000000;
   padding: 20px;
+}
+
+.message-sending{
+  position: fixed;
+  bottom: 0;
+  
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+  width: calc(100vw - 30% - 40px);
+  left: calc(30%);;
+}
+
+.message-sending button{
+  width: 50px;
+}
+
+.message-sending input{
+  margin-top: 6px;
+  width: 100%;
 }
