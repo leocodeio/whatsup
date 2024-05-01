@@ -3,7 +3,10 @@ import React from "react";
 const Text = () => {
   return (
     <>
-      <p>hi</p>
+      <div className="text-area">
+        <div className="search-area">here searching will be done</div>
+        <div className="chat-area">here chatting will be done</div>
+      </div>
     </>
   );
 };
