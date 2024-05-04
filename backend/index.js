@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema({
   name: String,
   email: String,
   password: String,
+  tag:String,
 });
 
 // Create a model
@@ -30,12 +31,16 @@ app.post("/signup", async (req, res) => {
   console.log("Name:", name);
   console.log("Email:", email);
   console.log("Password:", password);
+  const forLength = await User.find(); // Assuming user.find() returns a promise
+  const count = forLength.length;
+  const tag = 'w-up' + count;
 
   try {
     const user = new User({
       name,
       email,
       password,
+      tag,
     });
     await user.save();
     console.log("User saved to database:", user);
