@@ -36,7 +36,7 @@ const Register = (props) => {
         
         <button type='submit' className='account-manage-button'>Sign Up</button>
       </form>
-      <button onClick={() => props.onFormSwitch('yes')}>Don't have an account? Create here</button>
+      <button onClick={() => props.onFormSwitch('yes')}>Already have an account? LogIn here</button>
     </>
   )
 }
