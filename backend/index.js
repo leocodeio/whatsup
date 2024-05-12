@@ -20,12 +20,15 @@ app.post("/signup", async (req, res) => {
   console.log("Name:", name);
   console.log("Email:", email);
   console.log("Password:", password);
+  const count = await User.countDocuments();
+  const tag = `whatstag${count + 1}`;
 
   try {
     const user = new User({
       name,
       email,
       password,
+      tag,
     });
     await user.save();
     console.log("User saved to database:", user);
