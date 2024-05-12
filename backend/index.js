@@ -32,7 +32,6 @@ app.post("/signup", async (req, res) => {
     });
     await user.save();
     console.log("User saved to database:", user);
-
   } catch (error) {
     console.error("Error:", error);
     res.status(500).send("Error saving user to database");
@@ -44,10 +43,10 @@ app.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ email, password });
     if (user) {
-      console.log('ok');
+      console.log("ok");
       res.status(200).send("Login successful"); // Send a success response
     } else {
-      console.log('not ok');
+      console.log("not ok");
       res.status(401).send("Invalid email or password"); // Send a failure response
     }
   } catch (error) {
@@ -55,6 +54,24 @@ app.post("/login", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+app.post("/search-user", async (req, res) => {
+  const { searchTag } = req.body; // Destructure searchTag directly from req.body
+  try {
+    const user = await User.findOne({ tag: searchTag }); // Use searchTag directly here
+    if (user) {
+      console.log("User found:", user);
+      res.status(200).send(user);
+    } else {
+      console.log("User not found");
+      res.status(404).send({});
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
