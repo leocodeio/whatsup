@@ -1,5 +1,5 @@
 import "./App.css";
-import Start from "./components/Start";
+import Start from "./screens/Start";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {

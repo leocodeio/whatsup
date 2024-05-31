@@ -1,10 +1,10 @@
 // start.jsx
 import React, { useState } from "react";
-import whatsup from "./artifacts/whatsup.png";
-import Register from "./parts/Register";
-import Login from "./parts/Login";
-import Logout from "./parts/Logout";
-import Text from "./parts/Text";
+import whatsup from "../artifacts/whatsup.png";
+import Register from "../components/Register";
+import Login from "../components/Login";
+import Logout from "../components/Logout";
+import Text from "./Text";
 
 const Start = () => {
   const [isUser, setIsUser] = useState("yes");
