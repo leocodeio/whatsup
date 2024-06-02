@@ -2,7 +2,7 @@ import React from 'react';
 
 const Logout = ({ setIsLogged }) => {
   const handleLogout = () => {
-    setIsLogged(false); // Update isLogged state in Start component
+    setIsLogged(false);
     localStorage.setItem("isLogged", "no");
   };
 

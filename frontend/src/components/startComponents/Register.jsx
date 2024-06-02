@@ -5,12 +5,13 @@ const Register = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3001/signup', { email, password, name });
       console.log(response.data);
+      props.onFormSwitch('yes');
+      alert("signu up sucess !!");
     } catch (error) {
       console.error('Error:', error);
     }

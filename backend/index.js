@@ -31,10 +31,12 @@ app.post("/signup", async (req, res) => {
       tag,
     });
     await user.save();
-    console.log("User saved to database:", user);
+    res.status(200).send("Login successful");
+    console.log("sign up ok");
+
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).send("Error saving user to database");
+    console.log("sign up not ok");
   }
 });
 

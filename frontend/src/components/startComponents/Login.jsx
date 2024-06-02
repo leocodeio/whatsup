@@ -15,7 +15,7 @@ const Login = (props) => {
   
       if (response.status === 200) {
         console.log('Login successful');
-        props.setIsLogged(true); // Update isLogged state in Start component
+        props.setIsLogged(true);
       } else {
         console.log('Login failed');
       }
