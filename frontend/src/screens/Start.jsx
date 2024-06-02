@@ -1,19 +1,18 @@
 // start.jsx
 import React, { useState } from "react";
 import whatsup from "../artifacts/whatsup.png";
-import Register from "../components/Register";
-import Login from "../components/Login";
-import Logout from "../components/Logout";
+import Register from "../components/startComponents/Register";
+import Login from "../components/startComponents/Login";
+import Logout from "../components/startComponents/Logout";
 import Text from "./Text";
 
 const Start = () => {
   const [isUser, setIsUser] = useState("yes");
-  const [isLogged, setIsLogged] = useState(localStorage.getItem("isLogged") === "yes");
-
   const toggle = (decision) => {
     setIsUser(decision);
   };
 
+  const [isLogged, setIsLogged] = useState(localStorage.getItem("isLogged") === "yes");
   const handleLogin = (loggedIn) => {
     setIsLogged(loggedIn);
   };
@@ -49,7 +48,7 @@ const Start = () => {
             {isUser === "yes" ? (
               <Login onFormSwitch={toggle} setIsLogged={handleLogin} />
             ) : (
-              <Register onFormSwitch={toggle} setIsLogged={handleLogin} />
+              <Register onFormSwitch={toggle}/>
             )}
           </div>
         </div>
