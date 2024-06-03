@@ -1,10 +1,12 @@
 // start.jsx
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import whatsup from "../artifacts/whatsup.png";
 import Register from "../components/startComponents/Register";
 import Login from "../components/startComponents/Login";
 import Logout from "../components/startComponents/Logout";
 import Text from "./Text";
+import { AccountContext } from "../context/AccountDetails";
+
 
 const Start = () => {
   const [isUser, setIsUser] = useState("yes");
@@ -12,14 +14,11 @@ const Start = () => {
     setIsUser(decision);
   };
 
-  const [isLogged, setIsLogged] = useState(localStorage.getItem("isLogged") === "yes");
-  const handleLogin = (loggedIn) => {
-    setIsLogged(loggedIn);
-  };
+  const {isLogged}=useContext(AccountContext);
 
-  return isLogged ? (
+  return isLogged==="yes" ? (
     <>
-      <Logout setIsLogged={setIsLogged} />
+      <Logout/>
       <Text/>
     </>
   ) : (
@@ -46,7 +45,7 @@ const Start = () => {
           </div>
           <div className="signup-login">
             {isUser === "yes" ? (
-              <Login onFormSwitch={toggle} setIsLogged={handleLogin} />
+              <Login onFormSwitch={toggle}/>
             ) : (
               <Register onFormSwitch={toggle}/>
             )}

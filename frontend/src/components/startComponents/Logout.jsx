@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AccountContext } from '../../context/AccountDetails';
 
-const Logout = ({ setIsLogged }) => {
+const Logout = () => {
+  const {setIsLogged} = useContext(AccountContext);
+
   const handleLogout = () => {
-    setIsLogged(false);
-    localStorage.setItem("isLogged", "no");
+    // setIsLogged(false);
+    // localStorage.setItem("isLogged", "no");
+    setIsLogged("no");
   };
 
   return (

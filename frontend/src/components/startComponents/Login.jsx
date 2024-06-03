@@ -1,10 +1,12 @@
 // login.jsx
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
+import { AccountContext } from '../../context/AccountDetails';
 
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const {setIsLogged} = useContext(AccountContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +17,8 @@ const Login = (props) => {
   
       if (response.status === 200) {
         console.log('Login successful');
-        props.setIsLogged(true);
+        // props.setIsLogged(true);
+        setIsLogged("yes");
       } else {
         console.log('Login failed');
       }
