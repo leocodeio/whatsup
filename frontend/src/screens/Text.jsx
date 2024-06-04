@@ -1,7 +1,8 @@
 import React from "react";
-import Menu from "../components/textComponents/Menu";
-import Chat from "../components/textComponents/Chat";
-import MenuHeader from "../components/textComponents/MenuHeader";
+import Menu from "../components/textComponents/userComponents/Menu";
+import MenuHeader from "../components/textComponents/userComponents/MenuHeader";
+import Connects from "../components/textComponents/userComponents/Connects";
+// import Chat from "./Chat";
 
 const Text = () => {
   return (
@@ -10,9 +11,10 @@ const Text = () => {
         <h1 className="text-xl font-black font-bold">WhatsUp</h1>
         <MenuHeader />
       </div>
-        <Menu />
+      <Menu />
       <div className="p-2 m-4 border-solid border-black border-2 rounded-lg">
-        <Chat />
+        <Connects />
+        {/* <Chat /> */}
       </div>
     </>
   );

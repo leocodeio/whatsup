@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { AccountContext } from "../../context/AccountDetails";
+import { AccountContext } from "../../../context/AccountDetails";
 import { useContext } from "react";
 import { IoPerson } from "react-icons/io5";
 
@@ -32,7 +32,8 @@ export default function MenuHeader() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-      ><IoPerson style={{ fontSize: '30px', color:'black'}} />
+      >
+        <IoPerson style={{ fontSize: "30px", color: "black" }} />
       </Button>
       <Menu
         id="demo-positioned-menu"
