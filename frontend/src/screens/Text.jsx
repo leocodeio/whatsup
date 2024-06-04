@@ -6,7 +6,7 @@ import MenuHeader from "../components/textComponents/MenuHeader";
 const Text = () => {
   return (
     <>
-      <div className="p-3 mb-4 bg-gradient-to-l from-green-500 flex items-center justify-between">
+      <div className="p-3 mb-4 bg-gradient-to-l from-green-500 flex items-center justify-between border-solid border-black border-2">
         <h1 className="text-xl font-black font-bold">WhatsUp</h1>
         <MenuHeader />
       </div>

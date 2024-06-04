@@ -28,13 +28,14 @@ const Menu = () => {
     <>
         <form
           method="post"
-          className="mb-4 pl-2 pr-4 flex align-center justify-between p-2 m-4 border-solid border-black border-2 rounded-lg"
+          className="bg-slate-100 gap-1.5 mb-4 pl-2 pr-4 flex align-center justify-between p-2 m-4 border-solid border-black border-2 rounded-lg"
           onSubmit={handleSearch}
         >
           <input
             type="text"
             placeholder="#Tag here"
             value={searchTag}
+            className="rounded-lg pl-2 py-0.5 w-full"
             onChange={(e) => setSearchTag(e.target.value)}
           />
           <button type="submit">
