@@ -32,7 +32,7 @@ export default function MenuHeader() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-      ><IoPerson style={{ fontSize: '30px' }} />
+      ><IoPerson style={{ fontSize: '30px', color:'black'}} />
       </Button>
       <Menu
         id="demo-positioned-menu"

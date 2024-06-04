@@ -1,4 +1,4 @@
-// import "./App.css";
+import "./App.css";
 import Start from "./screens/Start";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Text from "./screens/Text";
@@ -7,7 +7,7 @@ import AccountDetails from './context/AccountDetails'
 
 function App() {
   return (
-    <div className="App">
+    <div className="h-svh w-svw">
       <BrowserRouter>
         <AccountDetails>
           <Routes>

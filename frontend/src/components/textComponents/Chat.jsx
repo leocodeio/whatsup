@@ -4,14 +4,12 @@ import { IoIosSend } from "react-icons/io";
 const Chat = () => {
   return (
     <>
-      <div className="chat-area">
-        <form method="post" className="message-sending">
-          <input type="text" placeholder="message..." />
-          <button type="submit">
-            <IoIosSend />
-          </button>
-        </form>
-      </div>
+      <form method="post" className="flex items-center justify-between">
+        <input type="text" placeholder="Message..." />
+        <button type="submit">
+          <IoIosSend style={{fontSize: '25px', color:'black'}}/>
+        </button>
+      </form>
     </>
   );
 };

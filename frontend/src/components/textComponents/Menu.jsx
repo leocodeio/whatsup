@@ -26,10 +26,9 @@ const Menu = () => {
 
   return (
     <>
-      <div className="h-90 w-80">
         <form
           method="post"
-          className="flex border-black border-solid border-4"
+          className="mb-4 pl-2 pr-4 flex align-center justify-between p-2 m-4 border-solid border-black border-2 rounded-lg"
           onSubmit={handleSearch}
         >
           <input
@@ -42,7 +41,6 @@ const Menu = () => {
             <FaSearch />
           </button>
         </form>
-      </div>
     </>
   );
 };

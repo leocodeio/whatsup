@@ -6,12 +6,13 @@ import MenuHeader from "../components/textComponents/MenuHeader";
 const Text = () => {
   return (
     <>
-      <div className="flex flex-col">
+      <div className="p-3 mb-4 bg-gradient-to-l from-green-500 flex items-center justify-between">
+        <h1 className="text-xl font-black font-bold">WhatsUp</h1>
         <MenuHeader />
-        <div className="flex border-solid border-black border-4">
-          <Menu />
-          <Chat />
-        </div>
+      </div>
+        <Menu />
+      <div className="p-2 m-4 border-solid border-black border-2 rounded-lg">
+        <Chat />
       </div>
     </>
   );
