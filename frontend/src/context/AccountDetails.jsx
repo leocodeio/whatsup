@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const AccountContext = createContext(null);
 
 const AccountDetails = ({ children }) => {
-  const [account, setAccount] = useState(null);
+  const [Account, setAccount] = useState(null);
   const [isLogged, setIsLogged] = useState("no");
 
   return (
@@ -11,7 +11,7 @@ const AccountDetails = ({ children }) => {
       value={{
         isLogged,
         setIsLogged,
-        account,
+        Account,
         setAccount,
       }}
     >
