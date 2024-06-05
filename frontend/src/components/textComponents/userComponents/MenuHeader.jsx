@@ -5,27 +5,40 @@ import MenuItem from "@mui/material/MenuItem";
 import { AccountContext } from "../../../context/AccountDetails";
 import { useContext } from "react";
 import { IoPerson } from "react-icons/io5";
+import { useState } from "react";
 
-export default function MenuHeader() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+
+export default function MenuHeader(props) {
+
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
   };
 
   const { setIsLogged } = useContext(AccountContext);
   const handleLogout = () => {
-    // setIsLogged(false);
-    // localStorage.setItem("isLogged", "no");
     setIsLogged("no");
     setAnchorEl(null);
   };
 
+  const handleMyAccount = () => {
+    props.setIsAccOpen("yes")
+    setAnchorEl(null);
+  };
+
+  const handleProfile = () => {
+    props.setIsProfileOpen("yes")
+    setAnchorEl(null);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
-    <div>
+    <>
       <Button
         id="demo-positioned-button"
         aria-controls={open ? "demo-positioned-menu" : undefined}
@@ -50,10 +63,10 @@ export default function MenuHeader() {
           horizontal: "left",
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleProfile}>Profile</MenuItem>
+        <MenuItem onClick={handleMyAccount}>My account</MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
-    </div>
+    </>
   );
 }

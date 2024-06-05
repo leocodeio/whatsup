@@ -5,7 +5,7 @@ import { AccountContext } from '../../context/AccountDetails';
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setAccount, setIsLogged } = useContext(AccountContext);
+  const { setAccount,setIsLogged } = useContext(AccountContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const Login = (props) => {
       console.log('Response:', response);
 
       if (response.status === 200) {
-        console.log('Login successful');
+        // console.log('Login successful'); 
         setIsLogged("yes");
         setAccount(response.data.user);
       } else {

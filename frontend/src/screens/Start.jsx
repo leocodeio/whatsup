@@ -11,8 +11,7 @@ const Start = () => {
     setIsUser(decision);
   };
 
-  const { isLogged } = useContext(AccountContext);
-
+  const {isLogged } = useContext(AccountContext);
   return isLogged === "yes" ? (
     <>
       <Text />
