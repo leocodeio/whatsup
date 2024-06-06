@@ -4,6 +4,7 @@ import MenuHeader from "../components/textComponents/userComponents/MenuHeader";
 import Connects from "../components/textComponents/userComponents/Connects";
 import Profile from "../components/textComponents/userComponents/Profile";
 import Acc from "../components/textComponents/userComponents/Acc";
+import { IoMdHome } from "react-icons/io"
 // import Chat from "./Chat";
 
 const Text = () => {
@@ -18,13 +19,23 @@ const Text = () => {
     <>
       {isAccOpen === "yes" ? (
         <>
+          <button
+            className="fixed right-4 top-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleClick}
+          >
+            <IoMdHome className="text-3xl text-black"/>
+          </button>
           <Acc />
-          <button onClick={handleClick}>home</button>
         </>
       ) : isProfileOpen === "yes" ? (
         <>
+          <button
+            className="fixed right-4 top-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleClick}
+          >
+            <IoMdHome className="text-3xl text-black"/>
+          </button>
           <Profile />
-          <button onClick={handleClick}>home</button>
         </>
       ) : (
         <>
