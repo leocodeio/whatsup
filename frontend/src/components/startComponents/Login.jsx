@@ -12,7 +12,7 @@ const Login = (props) => {
 
     try {
       const response = await axios.post('http://localhost:3001/login', { email, password });
-      console.log('Response:', response);
+      // console.log('Response:', response);
 
       if (response.status === 200) {
         // console.log('Login successful'); 

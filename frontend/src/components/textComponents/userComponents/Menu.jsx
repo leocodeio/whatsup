@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
+import Connects from "./Connects";
 
 const Menu = () => {
   const [searchTag, setSearchTag] = useState("");
+  const [searchedUser,setSearchedUser]=useState({
+    _id: '665c3dc02e52ea1e33526870',        
+  
+    name: 'asdssda',
+    email: 'ssasda@s.cds',    
+  
+    password: 'asdsa@sda.xc', 
+  
+    tag: 'whatstag1',
+    __v: 0
+  });
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -12,10 +24,11 @@ const Menu = () => {
       const response = await axios.post("http://localhost:3001/search-user", {
         searchTag,
       });
-      console.log("Response:", response);
+      // console.log("Response:", response);
 
       if (response.status === 200) {
         console.log("user found");
+        setSearchedUser(response.data);
       } else {
         console.log("user not found");
       }
@@ -23,6 +36,9 @@ const Menu = () => {
       console.error("Error:", error);
     }
   };
+  useEffect(()=>{
+    console.log(searchedUser.data);
+  },[searchedUser])
 
   return (
     <>
@@ -42,6 +58,8 @@ const Menu = () => {
             <FaSearch />
           </button>
         </form>
+
+        <Connects searchedUser={searchedUser}/>
     </>
   );
 };

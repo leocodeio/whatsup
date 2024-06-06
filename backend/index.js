@@ -58,9 +58,10 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/search-user", async (req, res) => {
-  const { searchTag } = req.body; // Destructure searchTag directly from req.body
+  const { searchTag } = req.body;
+  console.log(searchTag);
   try {
-    const user = await User.findOne({ tag: searchTag }); // Use searchTag directly here
+    const user = await User.findOne({ tag: searchTag });
     if (user) {
       console.log("User found:", user);
       res.status(200).send(user);
