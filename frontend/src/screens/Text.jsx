@@ -10,19 +10,22 @@ const Text = () => {
   const [isAccOpen, setIsAccOpen] = useState("no");
   const [isProfileOpen, setIsProfileOpen] = useState("no");
 
-  const handleClick=()=>{
+  const handleClick = () => {
     setIsAccOpen("no");
-  }
+    setIsProfileOpen("no");
+  };
   return (
     <>
       {isAccOpen === "yes" ? (
         <>
-        <Acc />
-        <button onClick={handleClick}>home</button>
+          <Acc />
+          <button onClick={handleClick}>home</button>
         </>
-        
       ) : isProfileOpen === "yes" ? (
-        <Profile />
+        <>
+          <Profile />
+          <button onClick={handleClick}>home</button>
+        </>
       ) : (
         <>
           <div className="p-3 mb-4 bg-gradient-to-l from-green-500 flex items-center justify-between border-solid border-black border-2">

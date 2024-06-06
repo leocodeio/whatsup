@@ -6,7 +6,7 @@ const Acc = () => {
   console.log(Account);
   return (
     <>
-      <h1>this is {JSON.stringify(Account)}</h1>
+      <h1>this is acc page!!!{JSON.stringify(Account)}</h1>
     </>
   )
 }
