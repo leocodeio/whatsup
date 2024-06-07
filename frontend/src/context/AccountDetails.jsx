@@ -4,7 +4,7 @@ export const AccountContext = createContext(null);
 
 const AccountDetails = ({ children }) => {
   const [Account, setAccount] = useState(null);
-  const [isLogged, setIsLogged] = useState("no");
+  const [isLogged, setIsLogged] = useState("no"); 
 
   return (
     <AccountContext.Provider

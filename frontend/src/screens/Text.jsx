@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Menu from "../components/textComponents/userComponents/Menu";
-import MenuHeader from "../components/textComponents/userComponents/MenuHeader";
 import Profile from "../components/textComponents/userComponents/Profile";
 import Acc from "../components/textComponents/userComponents/Acc";
 import { IoMdHome } from "react-icons/io";
@@ -14,6 +13,7 @@ const Text = () => {
     setIsAccOpen("no");
     setIsProfileOpen("no");
   };
+
   return (
     <>
       {isAccOpen === "yes" ? (
@@ -38,14 +38,10 @@ const Text = () => {
         </>
       ) : (
         <>
-          <div className="p-3 mb-4 bg-gradient-to-l from-green-500 flex items-center justify-between border-solid border-black border-2">
-            <h1 className="text-xl font-black font-bold">WhatsUp</h1>
-            <MenuHeader
-              setIsAccOpen={setIsAccOpen}
-              setIsProfileOpen={setIsProfileOpen}
-            />
-          </div>
-          <Menu />
+          <Menu
+            setIsAccOpen={setIsAccOpen}
+            setIsProfileOpen={setIsProfileOpen}
+          />
           {/* <Chat /> */}
         </>
       )}

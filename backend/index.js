@@ -17,9 +17,9 @@ app.use(cors());
 
 app.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
-  console.log("Name:", name);
-  console.log("Email:", email);
-  console.log("Password:", password);
+  // console.log("Name:", name);
+  // console.log("Email:", email);
+  // console.log("Password:", password);
   const count = await User.countDocuments();
   const tag = `whatstag${count + 1}`;
 
@@ -33,7 +33,6 @@ app.post("/signup", async (req, res) => {
     await user.save();
     res.status(200).send("Login successful");
     console.log("sign up ok");
-
   } catch (error) {
     console.error("Error:", error);
     console.log("sign up not ok");
@@ -59,11 +58,11 @@ app.post("/login", async (req, res) => {
 
 app.post("/search-user", async (req, res) => {
   const { searchTag } = req.body;
-  console.log(searchTag);
+  // console.log(searchTag);
   try {
     const user = await User.findOne({ tag: searchTag });
     if (user) {
-      console.log("User found:", user);
+      // console.log("User found:", user);
       res.status(200).send(user);
     } else {
       console.log("User not found");
@@ -75,6 +74,25 @@ app.post("/search-user", async (req, res) => {
   }
 });
 
+app.post("/connects", async (req, res) => {
+  const { tag, additions } = req.body;
+  console.log(tag, "hi", additions, "hi");
+  try {
+    const user = await User.findOne({ tag: tag });
+    if (user) {
+      user.connects = additions;
+      await user.save();
+      console.log(user.connects);
+      res.status(200).send(user);
+    } else {
+      console.log("error in updating personal connects");
+      res.status(404).send({});
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

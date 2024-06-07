@@ -1,25 +1,29 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Connects = (props) => {
-  const searchedUser = props.searchedUser;
-  // console.log(searchedUser);
+  const searchedUsers = props.searchedUsers;
+  const navigate = useNavigate();
+
   const handleClick = (userId) => {
     console.log(`Clicked user with ID: ${userId}`);
-    // You can implement your logic here, such as redirecting to the user's profile page
+    navigate(`/chat/${userId}`);
   };
 
   return (
     <div className="p-2 m-4 border-solid border-black border-2 rounded-lg">
-      <div
-        onClick={() => handleClick(searchedUser._id)}
-        style={{ cursor: "pointer" }}
-      >
-        {/* Render user information here */}
-        <p>{searchedUser.name}</p>
-        <p>{searchedUser.email}</p>
-        {/* Add more user details as needed
-        <hr /> {/* Line below each user */}
-      </div>
+      {searchedUsers.map((user) => (
+        <div
+          key={user._id}
+          onClick={() => handleClick(user._id)}
+          style={{ cursor: "pointer" }}
+          className="user-card"
+        >
+          <p>{user.name}</p>
+          <p>{user.tag}</p>
+          <hr />
+        </div>
+      ))}
     </div>
   );
 };
