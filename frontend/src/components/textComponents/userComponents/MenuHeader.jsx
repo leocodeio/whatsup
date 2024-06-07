@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { AccountContext } from "../../../context/AccountDetails";
 import { useContext, useState } from "react";
 import { IoPerson } from "react-icons/io5";
+import axios from "axios";
 
 export default function MenuHeader(props) {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -17,8 +18,23 @@ export default function MenuHeader(props) {
     setIsBackdropVisible(true);
   };
 
-  const { setIsLogged } = useContext(AccountContext);
-  const handleLogout = () => {
+  const { Account,setIsLogged } = useContext(AccountContext);
+
+  const handleLogout = async () => {
+    try {
+      const tag=Account.tag;
+      const additions=props.searchedUsers;
+      // console.log(id,additions);
+      const response = await axios.post('http://localhost:3001/connects', {tag,additions});
+      if (response.status === 200) {
+        console.log("done addin useUsersPair");
+      } else {
+        console.log("some probe occured");
+      }
+    } catch (error) {
+      console.log("error occured",error.message);
+    }
+    
     setIsLogged("no");
     handleClose();
   };
