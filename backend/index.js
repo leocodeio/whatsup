@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const User = require("./models/User");
+const Conversation = require("./models/Coversation");
 
 const app = express();
 const port = 3001;
@@ -88,6 +89,34 @@ app.post("/connects", async (req, res) => {
       console.log("error in updating personal connects");
       res.status(404).send({});
     }
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.post("/conversation/add", async (req, res) => {
+  try {
+    const senderId = req.body.senderId;
+    const recieverId = req.body.recieverId;
+    console.log("Sender ID:", senderId, "Receiver ID:", recieverId);
+    console.log("Conversation model:", Conversation);
+
+    const exist = await Conversation.findOne({
+      participants: { $all: [senderId, recieverId] },
+    });
+    console.log("Exist:", exist);
+
+    if (exist) {
+      return res.status(200).json("convo already exist");
+    }
+
+    const newConversation = new Conversation({
+      participants: [senderId, recieverId],
+    });
+    await newConversation.save();
+    console.log("New Conversation Saved");
+    return res.status(200).json("convo saved successfully");
   } catch (error) {
     console.error("Error:", error);
     res.status(500).send("Internal Server Error");

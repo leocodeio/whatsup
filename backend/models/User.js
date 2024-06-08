@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
       name: "Level_up_bot_1",
       email: "level@level.level",
       password: "level",
-      tag: "whatstag1",
+      tag: "whatstag0",
       __v: 0,
     }]
   }

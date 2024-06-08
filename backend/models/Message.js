@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-
+const mongoose = require("mongoose");
 const messageSchema = new mongoose.Schema(
 	{
 		senderId: {
@@ -16,11 +15,10 @@ const messageSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		// createdAt, updatedAt
 	},
 	{ timestamps: true }
 );
 
 const Message = mongoose.model("Message", messageSchema);
 
-export default Message;
+module.exports =Message;

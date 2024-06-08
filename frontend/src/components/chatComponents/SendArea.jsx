@@ -7,7 +7,7 @@ const SendArea = () => {
     <>
       <form
         method="post"
-        className="gap-1.5 bg-slate-100 flex items-center justify-between rounded-lg"
+        className="fixed bottom-0 w-full gap-1.5 bg-slate-100 flex items-center justify-between rounded-lg p-2"
       >
         <input
           type="text"

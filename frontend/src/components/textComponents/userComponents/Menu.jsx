@@ -7,7 +7,7 @@ import MenuHeader from "./MenuHeader";
 
 const Menu = (props) => {
   const { Account } = useContext(AccountContext);
-  console.log(Account);
+  // console.log(Account);
   const [searchTag, setSearchTag] = useState("");
   const [searchedUsers, setSearchedUsers] = useState(Account.connects);
 
@@ -75,7 +75,7 @@ const Menu = (props) => {
         </button>
       </form>
 
-      <Connects searchedUsers={searchedUsers} />
+      <Connects searchedUsers={searchedUsers}/>
     </>
   );
 };
