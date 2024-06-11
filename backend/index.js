@@ -99,13 +99,13 @@ app.post("/conversation/add", async (req, res) => {
   try {
     const senderId = req.body.senderId;
     const recieverId = req.body.recieverId;
-    console.log("Sender ID:", senderId, "Receiver ID:", recieverId);
-    console.log("Conversation model:", Conversation);
+    // console.log("Sender ID:", senderId, "Receiver ID:", recieverId);
+    // console.log("Conversation model:", Conversation);
 
     const exist = await Conversation.findOne({
       participants: { $all: [senderId, recieverId] },
     });
-    console.log("Exist:", exist);
+    // console.log("Exist:", exist);
 
     if (exist) {
       return res.status(200).json("convo already exist");
@@ -120,6 +120,56 @@ app.post("/conversation/add", async (req, res) => {
   } catch (error) {
     console.error("Error:", error);
     res.status(500).send("Internal Server Error");
+  }
+});
+
+app.post("/chat/:id", async (req, res) => {
+  try {
+    const senderId = req.body.senderId;
+    const receiverId = req.params.id;
+    const message = req.body.message;
+    // console.log(senderId, receiverId, message);
+
+    if (!senderId || !receiverId || !message) {
+      return res
+        .status(400)
+        .json({ error: "senderId, receiverId, and message are required" });
+    }
+
+    const conversation = await Conversation.findOne({
+      participants: { $all: [senderId, receiverId] },
+    });
+
+    if (!conversation) {
+      return res.status(404).json({ error: "Conversation not found" });
+    }
+    conversation.messages.push(message);
+    await conversation.save();
+    res.status(200).json({ message: "Message added successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/chat/:id", async (req, res) => {
+  const senderId = req.query.senderId;
+  const receiverId = req.params.id;
+  console.log("Sender ID:", senderId, "Receiver ID:", receiverId);
+
+  try {
+    const conversation = await Conversation.findOne({
+      participants: { $all: [senderId, receiverId] },
+    });
+
+    if (conversation) {
+      res.status(200).json(conversation.messages);
+    } else {
+      res.status(404).json([]);
+    }
+  } catch (err) {
+    console.error("Error fetching conversation:", err);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 

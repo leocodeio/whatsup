@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 import Connects from "./Connects";
-import { AccountContext } from "../../../context/AccountDetails";
+import { AccountContext } from "../../context/AccountDetails";
 import MenuHeader from "./MenuHeader";
 
 const Menu = (props) => {

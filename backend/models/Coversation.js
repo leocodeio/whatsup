@@ -7,7 +7,8 @@ const ConversationSchema = new mongoose.Schema({
     required: true,
   },
   messages:{
-		type:String,
+		type:[String],
+    default:[],
 	}
 });
 

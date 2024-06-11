@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Menu from "../components/textComponents/userComponents/Menu";
-import Profile from "../components/textComponents/userComponents/Profile";
-import Acc from "../components/textComponents/userComponents/Acc";
+import Menu from "../components/textComponents/Menu";
+import Profile from "../components/textComponents/Profile";
+import Acc from "../components/textComponents/Acc";
 import { IoMdHome } from "react-icons/io";
 // import Chat from "./Chat";
 
