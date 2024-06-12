@@ -7,8 +7,10 @@ import axios from "axios";
 const SendArea = ({ userId, text, setText }) => {
   const { Account } = useContext(AccountContext);
   // console.log(Account._id, text);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       await axios.post(`http://localhost:3001/chat/${userId.id}`, {
         senderId: Account._id,
@@ -18,7 +20,9 @@ const SendArea = ({ userId, text, setText }) => {
       console.log("error while sending new convo", err);
     }
     setText("");
+
   };
+
   return (
     <>
       <form
