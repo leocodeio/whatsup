@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoIosSend } from "react-icons/io";
 import Features from "./Features";
+import { AccountContext } from "../../context/AccountDetails";
+import axios from "axios";
 
-const SendArea = () => {
+const SendArea = ({ userId, text, setText }) => {
+  const { Account } = useContext(AccountContext);
+  // console.log(Account._id, text);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post(`http://localhost:3001/chat/${userId.id}`, {
+        senderId: Account._id,
+        message: text,
+      });
+    } catch (err) {
+      console.log("error while sending new convo", err);
+    }
+    setText("");
+
+  };
+
   return (
     <>
       <form
         method="post"
-        className="gap-1.5 bg-slate-100 flex items-center justify-between rounded-lg"
+        className="fixed bottom-0 w-full gap-1.5 bg-slate-100 flex items-center justify-between rounded-lg p-2"
+        onSubmit={handleSubmit}
       >
         <input
           type="text"
           placeholder="Message..."
           className="pl-3 py-0.5 w-full ml-4 rounded-lg"
+          onChange={(e) => setText(e.target.value)}
         />
         <div className="flex gap-1">
           <button type="submit">

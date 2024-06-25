@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 import Connects from "./Connects";
-import { AccountContext } from "../../../context/AccountDetails";
+import { AccountContext } from "../../context/AccountDetails";
 import MenuHeader from "./MenuHeader";
 
 const Menu = (props) => {
   const { Account } = useContext(AccountContext);
-  console.log(Account);
+  // console.log(Account);
   const [searchTag, setSearchTag] = useState("");
   const [searchedUsers, setSearchedUsers] = useState(Account.connects);
 
@@ -75,7 +75,7 @@ const Menu = (props) => {
         </button>
       </form>
 
-      <Connects searchedUsers={searchedUsers} />
+      <Connects searchedUsers={searchedUsers}/>
     </>
   );
 };

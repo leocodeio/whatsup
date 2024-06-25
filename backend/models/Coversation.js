@@ -1,24 +1,16 @@
-import mongoose from "mongoose";
+// models/Conversation.js
+const mongoose = require('mongoose');
 
-const conversationSchema = new mongoose.Schema(
-	{
-		participants: [
-			{
-				type: mongoose.Schema.Types.ObjectId,
-				ref: "User",
-			},
-		],
-		messages: [
-			{
-				type: mongoose.Schema.Types.ObjectId,
-				ref: "Message",
-				default: [],
-			},
-		],
-	},
-	{ timestamps: true }
-);
+const ConversationSchema = new mongoose.Schema({
+  participants: {
+    type: [String],
+    required: true,
+  },
+  messages:{
+		type:[String],
+    default:[],
+	}
+});
 
-const Conversation = mongoose.model("Conversation", conversationSchema);
-
-export default Conversation;
+const Conversation = mongoose.model('Conversation', ConversationSchema);
+module.exports = Conversation;

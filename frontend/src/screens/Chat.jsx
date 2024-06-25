@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState } from "react";
 import Convos from "../components/chatComponents/Convos";
 import SendArea from "../components/chatComponents/SendArea";
 import { IoMdHome } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 const Chat = () => {
@@ -10,6 +10,9 @@ const Chat = () => {
   const handleClick = () => {
     navigate('/')
   };
+
+  const [text,setText]=useState("");
+
   return (
     <>
       <button
@@ -20,9 +23,9 @@ const Chat = () => {
       </button>
       <div className="flex flex-col">
         <div className="h-[350px] w-auto">
-          <Convos />
+          <Convos userId={useParams()} text={text} setText={setText}/>
         </div>
-        <SendArea />
+        <SendArea userId={useParams()} text={text} setText={setText}/>
       </div>
     </>
   );

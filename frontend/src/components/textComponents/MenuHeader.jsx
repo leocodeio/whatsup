@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { AccountContext } from "../../../context/AccountDetails";
+import { AccountContext } from "../../context/AccountDetails";
 import { useContext, useState } from "react";
 import { IoPerson } from "react-icons/io5";
 import axios from "axios";
