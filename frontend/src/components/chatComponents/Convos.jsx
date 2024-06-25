@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AccountContext } from "../../context/AccountDetails";
-import Render from "./Render"; 
 
 const Convos = ({ userId }) => {
   const [messages, setMessages] = useState([]);
