@@ -9,7 +9,7 @@ const Register = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/signup', { email, password, name });
+      const response = await axios.post('http://localhost:3001/users/signup', { email, password, name });
       console.log(response.data);
       props.onFormSwitch('yes');
       alert("Signup success!!");

@@ -1,29 +1,12 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    // unique: true,
-    // minlength: 4,
-  },
-  email: {
-    type: String,
-    required: true,
-    // unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-    // minlength: 6,
-  },
-  tag: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  connects:{
-    type:Array,
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  tag: { type: String, required: true, unique: true },
+  connects: {
+    type: Array,
     default: [{
       _id: "66627549f498372a6290941b",
       name: "Level_up_bot_1",
@@ -31,10 +14,10 @@ const userSchema = new mongoose.Schema({
       password: "level",
       tag: "whatstag0",
       __v: 0,
-    }]
-  }
+    }],
+  },
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

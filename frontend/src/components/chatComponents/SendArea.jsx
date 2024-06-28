@@ -12,7 +12,7 @@ const SendArea = ({ userId, text, setText }) => {
     e.preventDefault();
 
     try {
-      await axios.post(`http://localhost:3001/chat/${userId.id}`, {
+      await axios.post(`http://localhost:3001/conversations/chat/${userId.id}`, {
         senderId: Account._id,
         message: text,
       });

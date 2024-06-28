@@ -11,7 +11,7 @@ const Login = (props) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/login', { email, password });
+      const response = await axios.post('http://localhost:3001/users/login', { email, password });
       // console.log('Response:', response);
 
       if (response.status === 200) {

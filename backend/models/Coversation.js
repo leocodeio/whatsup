@@ -1,16 +1,10 @@
-// models/Conversation.js
 const mongoose = require('mongoose');
 
-const ConversationSchema = new mongoose.Schema({
-  participants: {
-    type: [String],
-    required: true,
-  },
-  messages:{
-		type:[String],
-    default:[],
-	}
+const conversationSchema = new mongoose.Schema({
+  participants: { type: [String], required: true },
+  messages: { type: [String], default: [] },
 });
 
-const Conversation = mongoose.model('Conversation', ConversationSchema);
+const Conversation = mongoose.model('Conversation', conversationSchema);
+
 module.exports = Conversation;

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AccountContext } from "../../context/AccountDetails";
-
+import Render from "./Render.jsx";
 const Convos = ({ userId }) => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ const Convos = ({ userId }) => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:3001/chat/${userId.id}`,
+          `http://localhost:3001/conversations/chat/${userId.id}`,
           {
             params: {
               senderId: Account._id,
@@ -31,13 +31,7 @@ const Convos = ({ userId }) => {
   }, [userId.id, Account._id]);
 
   return (
-    <div>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <Render messages={messages} />
-      )}
-    </div>
+    <div>{loading ? <p>Loading...</p> : <Render messages={messages} />}</div>
   );
 };
 

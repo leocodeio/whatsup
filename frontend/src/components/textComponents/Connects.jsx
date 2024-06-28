@@ -10,7 +10,7 @@ const Connects = (props) => {
   const handleClick = async (userId) => {
     // console.log(`Clicked user with ID: ${userId}`);
     try {
-      await axios.post("http://localhost:3001/conversation/add", {
+      await axios.post("http://localhost:3001/conversations/conversation/add", {
         senderId: Account._id,
         recieverId: userId,
       });
