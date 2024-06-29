@@ -28,7 +28,8 @@ const Convos = ({ userId }) => {
     };
 
     fetchMessages();
-  }, [userId.id, Account._id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   return (
     <div>{loading ? <p>Loading...</p> : <Render messages={messages} />}</div>
