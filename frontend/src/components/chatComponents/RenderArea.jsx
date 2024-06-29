@@ -1,6 +1,6 @@
 import React from "react";
 
-const Render = ({ messages }) => {
+const RenderArea = ({ messages }) => {
   console.log(messages[1]);
   return (
     <>
@@ -18,4 +18,4 @@ const Render = ({ messages }) => {
   );
 };
 
-export default Render;
+export default RenderArea;

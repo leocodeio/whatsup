@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { AccountContext } from "../../context/AccountDetails";
-import Render from "./Render.jsx";
+import RenderArea from "./RenderArea";
 const Convos = ({ userId }) => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ const Convos = ({ userId }) => {
   },[]);
 
   return (
-    <div>{loading ? <p>Loading...</p> : <Render messages={messages} />}</div>
+    <div>{loading ? <p>Loading...</p> : <RenderArea messages={messages} />}</div>
   );
 };
 
