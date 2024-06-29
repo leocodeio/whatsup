@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect, useContext } from "react";
-// import { useAuthContext } from "./AuthContext";
-// import io from "socket.io-client";
+import React, { createContext, useState, useEffect, useContext } from "react";
+import { AccountContext } from "./AccountDetails";
+import io from "socket.io-client";
 
 const SocketContext = createContext();
 
@@ -9,33 +9,38 @@ export const useSocketContext = () => {
 };
 
 export const SocketContextProvider = ({ children }) => {
-	// const [socket, setSocket] = useState(null);
-	// const [onlineUsers, setOnlineUsers] = useState([]);
-	// const { authUser } = useAuthContext();
+	const { Account } = useContext(AccountContext); // Use useContext to get Account from AccountContext
+	const [socket, setSocket] = useState(null); 
+	const [onlineUsers, setOnlineUsers] = useState([]);
 
-	// useEffect(() => {
-	// 	if (authUser) {
-	// 		const socket = io("https://chat-app-yt.onrender.com", {
-	// 			query: {
-	// 				userId: authUser._id,
-	// 			},
-	// 		});
+	useEffect(() => {
+		let socket;
+		if (Account) {
+			socket = io("http://localhost:3001", { // Replace with your server URL
+				query: {
+					userId: Account._id,
+				},
+			});
 
-	// 		setSocket(socket);
+			setSocket(socket);
 
-	// 		// socket.on() is used to listen to the events. can be used both on client and server side
-	// 		socket.on("getOnlineUsers", (users) => {
-	// 			setOnlineUsers(users);
-	// 		});
+			socket.on("getOnlineUsers", (users) => {
+				setOnlineUsers(users);
+			});
 
-	// 		return () => socket.close();
-	// 	} else {
-	// 		if (socket) {
-	// 			socket.close();
-	// 			setSocket(null);
-	// 		}
-	// 	}
-	// }, [authUser]);
+			return () => socket.close();
+		} else {
+			if (socket) {
+				socket.close();
+				setSocket(null);
+			}
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [Account]);
 
-	return <SocketContext.Provider value={{ socket, onlineUsers }}>{children}</SocketContext.Provider>;
+	return (
+		<SocketContext.Provider value={{ socket, onlineUsers }}>
+			{children}
+		</SocketContext.Provider>
+	);
 };
