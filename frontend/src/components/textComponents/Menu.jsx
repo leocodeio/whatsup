@@ -33,7 +33,7 @@ const Menu = (props) => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3001/conversations/search-user", {
+      const response = await axios.post("http://localhost:3001/users/search-user", {
         searchTag,
       });
 

@@ -25,7 +25,7 @@ export default function MenuHeader(props) {
       const tag=Account.tag;
       const additions=props.searchedUsers;
       // console.log(id,additions);
-      const response = await axios.post('http://localhost:3001/conversations/connects', {tag,additions});
+      const response = await axios.post('http://localhost:3001/users/connects', {tag,additions});
       if (response.status === 200) {
         console.log("done addin useUsersPair");
       } else {
